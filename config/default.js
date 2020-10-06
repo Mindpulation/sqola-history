@@ -1,6 +1,10 @@
 require('dotenv').config()
 
 module.exports = {
-    pathHistoryEndpoint: process.env.PATH_HISTORY_ENDPOINT,
+    HistoryEndpoint: process.env.endpoint,
+    dnsSentryUrl: process.env.DSN_SENTRY_URL,
     ports: process.env.PORT,
+    mongoDbUrl: process.env.MONGO_URL,
+    mongoDbase: process.env.MONGO_DB,
+    mongoDbCol: process.env.MONGO_COL,
 }
