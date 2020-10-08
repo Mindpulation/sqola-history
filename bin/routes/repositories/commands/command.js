@@ -1,8 +1,7 @@
 const config = require('config');
-const { date } = require('joi');
 const Mongo = require('mongooo').Mongooo;
 const { save } = require('mongooo').Save;
-// const { del } = require('mongooo').Delete;
+const { del } = require('mongooo').Delete;
 const { find } = require('mongooo').Find;
 const { set } = require('mongooo').Update;
 const {uuid : uuidv4} =  require('uuid');
@@ -79,30 +78,30 @@ const updateHistory = async (payloadData) => {
     return result;
 }
 
-// const deleteDataHistory = async (payloadData) => {
-//     const result = {
-//         "err" : true,
-//         "message" : "Failed to delete History"
-//     };
-//     try{
-//         const dbResult = await del(con, payloadData.data)
-//         if(dbResult == null || dbResult == undefined || dbResult == ""){
-//             result.err = true,
-//             result.message = "Email not found"
-//         } else {
-//             result.err = false,
-//             result.message = "Success to delete this history ", payloadData.data;
-//         }
-//     }catch (e) {
-//         const tickets = uuidv4;
-//         result.err = true,
-//         result.message = "Something went wrong"
-//         result.ticketId = tickets
-//         new Error(`Error : ${e}, ticketId : ${tickets}`);
-//         console.log(`command-deleteData [x] Error : ${e}, \nTicketId : ${tickets}`);
-//     }
-//     return result;
-// }
+const deleteDataHistory = async (payloadData) => {
+    const result = {
+        "err" : true,
+        "message" : "Failed to delete History"
+    };
+    try{
+        const dbResult = await del(con, payloadData.data)
+        if(dbResult == null || dbResult == undefined || dbResult == ""){
+            result.err = true,
+            result.message = "id not found"
+        } else {
+            result.err = false,
+            result.message = "Success to delete this history ", payloadData.data;
+        }
+    }catch (e) {
+        const tickets = uuidv4;
+        result.err = true,
+        result.message = "Something went wrong"
+        result.ticketId = tickets
+        new Error(`Error : ${e}, ticketId : ${tickets}`);
+        console.log(`command-deleteData [x] Error : ${e}, \nTicketId : ${tickets}`);
+    }
+    return result;
+}
 
 const findHistory = async (payloadData) => {
     const result = {
@@ -116,7 +115,7 @@ const findHistory = async (payloadData) => {
             result.message = "Data not found"
         } else {
             result.err = false,
-            result.result = dbResult;
+            result.message = dbResult;
         }
     }catch (e) {
         const tickets = uuidv4;
@@ -132,6 +131,6 @@ const findHistory = async (payloadData) => {
 module.exports = {
     createHistory,
     updateHistory,
-    // deleteDataHistory,
+    deleteDataHistory,
     findHistory
 }

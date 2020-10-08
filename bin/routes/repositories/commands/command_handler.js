@@ -8,9 +8,9 @@ const updateDataHistory = (payloadDataUpdate) =>{
     return command.updateHistory(payloadDataUpdate)
 }
 
-// const deleteDataHistory = (payloadDataDelete) => {
-//     return command.deleteDataHistory(payloadDataDelete)
-// }
+const deleteDataHistory = (payloadDataDelete) => {
+    return command.deleteDataHistory(payloadDataDelete)
+}
 
 const findDataHistory = (payloadDataFind) => {
     return command.findHistory(payloadDataFind)
@@ -19,6 +19,6 @@ const findDataHistory = (payloadDataFind) => {
 module.exports = {
     createDataHistory,
     updateDataHistory,
-    // deleteDataHistory,
+    deleteDataHistory,
     findDataHistory
 }

@@ -45,25 +45,25 @@ const UpdateHistory = async (req, res) => {
     sendResponse(await postRequest(validate));
 }
 
-// const DeleteHistory = async (req, res) => {
-//     const validate = validator.isValidPayload({email : req.params.userId}, remove);
-//     const postRequest = async (result) => {
-//         console.log("\nIni Result : ", result)
-//         if (result.err) {
-//             return result;
-//         }
-//         const output = await deleteDataHistory(result);
-//         console.log("Ini output : ", output)
-//         return output;
-//     };
-//     const sendResponse = async (result) => {
-//         (result.err) ? wrapper.response(res, 'fail', result, result.message, 400)
-//             : wrapper.response(res, 'success', result, result.message, 200);
-//         console.log("\nIni Result : ", result)
+const DeleteHistory = async (req, res) => {
+    const validate = validator.isValidPayload({id : req.params.historyId}, remove);
+    const postRequest = async (result) => {
+        console.log("\nIni Result : ", result)
+        if (result.err) {
+            return result;
+        }
+        const output = await deleteDataHistory(result);
+        console.log("Ini output : ", output)
+        return output;
+    };
+    const sendResponse = async (result) => {
+        (result.err) ? wrapper.response(res, 'fail', result, result.message, 400)
+            : wrapper.response(res, 'success', result, result.message, 200);
+        console.log("\nIni Result : ", result)
 
-//     };
-//     sendResponse(await postRequest(validate));
-// }
+    };
+    sendResponse(await postRequest(validate));
+}
 
 const FindHistory = async (req, res) => {
     const validate = validator.isValidPayload(req.body, find);
@@ -88,6 +88,6 @@ const FindHistory = async (req, res) => {
 module.exports = {
     NewHistory,
     UpdateHistory,
-    // DeleteHistory,
+    DeleteHistory,
     FindHistory
 }
