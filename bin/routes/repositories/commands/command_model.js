@@ -29,13 +29,13 @@ const find = joi.object({
     emailGuru : joi.string().email({tlds: {allow: true}}).optional()     
 })
 
-// const remove = joi.object({
-//     email : joi.string().email({tlds: {allow: true}}).required()
-// })
+const remove = joi.object({
+    id : joi.number().required(),
+})
 
 module.exports = {
     create,
     update,
     find,
-    // remove
+    remove
 };

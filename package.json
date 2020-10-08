@@ -30,8 +30,7 @@
     "mongooo": "^1.1.4",
     "raven": "^2.6.4",
     "uuid": "^8.3.0",
-    "validate.js": "^0.13.1",
-    "winston": "^3.3.3"
+    "validate.js": "^0.13.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

@@ -11,8 +11,8 @@ app.post("/find",async (req, res) => {
 app.put("/update",async (req, res) => {
     await historyHandlers.UpdateHistory(req, res)
 });
-// app.delete("/:userId",async (req, res) => {
-//     await historyHandlers.DeleteHistory(req, res)
-// });
+app.delete("/delete/:historyId",async (req, res) => {
+    await historyHandlers.DeleteHistory(req, res)
+});
 
 module.exports = app;
