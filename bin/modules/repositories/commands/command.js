@@ -11,7 +11,7 @@ const mongo = new Mongo();
 let con;
 (async () => {
     con = await mongo.setup(config.get('mongoDbUrl'), config.get('mongoDbase'), config.get('mongoDbCol'));
-})()
+})();
 
 const createHistory = async (payloadData) => {
     const result = {

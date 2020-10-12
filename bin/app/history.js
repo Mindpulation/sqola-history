@@ -1,4 +1,4 @@
-const historyHandlers =  require('../routes/handlers/handlers')
+const historyHandlers =  require('../modules/handlers/handlers')
 const express = require('express');
 const app = express.Router();
 
